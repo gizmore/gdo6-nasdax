@@ -82,5 +82,5 @@ final class NDX_Company extends GDO
     ##############
     ### Render ###
     ##############
-    public function renderCard() { return GDO_Template::php('Nasdax', 'card/company.php', ['company'=>$this]); }
+    public function renderCard() { return GDO_Template::responsePHP('Nasdax', 'card/company.php', ['company'=>$this]); }
 }
