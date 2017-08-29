@@ -1,10 +1,10 @@
 <?php
 namespace GDO\Nasdax;
 
-use GDO\Template\GDO_Template;
-use GDO\Type\GDO_String;
+use GDO\Template\GDT_Template;
+use GDO\Type\GDT_String;
 
-class NDX_Symbol extends GDO_String
+class NDX_Symbol extends GDT_String
 {
     public function defaultLabel() { return $this->label('symbol'); }
     
@@ -28,6 +28,6 @@ class NDX_Symbol extends GDO_String
     
     public function renderCell()
     {
-        return GDO_Template::php('Nasdax', 'cell/symbol.php', ['field' => $this]);
+        return GDT_Template::php('Nasdax', 'cell/symbol.php', ['field' => $this]);
     }
 }

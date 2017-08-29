@@ -1,10 +1,10 @@
 <?php
 use GDO\Nasdax\NDX_Company;
-use GDO\Payment\GDO_Money;
-use GDO\Template\GDO_Template;
+use GDO\Payment\GDT_Money;
+use GDO\Template\GDT_Template;
 
-$field instanceof GDO_Template;
+$field instanceof GDT_Template;
 $gdo = $field->gdo; $gdo instanceof NDX_Company;
-$money = GDO_Money::make('company_stock_price')->gdo($gdo)->renderCell();
+$money = GDT_Money::make('company_stock_price')->gdo($gdo)->renderCell();
 $class = $gdo->wentDown() ? 'ndx-rate-down' : 'ndx-rate-up';
 printf('<span class="%s">%s</span>', $class, $money);

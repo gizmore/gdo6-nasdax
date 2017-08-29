@@ -1,13 +1,13 @@
 <?php
 namespace GDO\Nasdax\Method;
 
-use GDO\Form\GDO_AntiCSRF;
-use GDO\Form\GDO_Form;
-use GDO\Form\GDO_Submit;
+use GDO\Form\GDT_AntiCSRF;
+use GDO\Form\GDT_Form;
+use GDO\Form\GDT_Submit;
 use GDO\Form\MethodForm;
 use GDO\Nasdax\Module_Nasdax;
 use GDO\Nasdax\NDX_Company;
-use GDO\Type\GDO_Int;
+use GDO\Type\GDT_Int;
 use GDO\Util\Common;
 
 final class Buy extends MethodForm
@@ -31,12 +31,12 @@ final class Buy extends MethodForm
         return $tabs->add($response);
     }
     
-    public function createForm(GDO_Form $form)
+    public function createForm(GDT_Form $form)
     {
         $form->addFields(array(
-            GDO_Int::make('stock_amt')->min(1)->max($this->company->getStock()),
-            GDO_Submit::make(),
-            GDO_AntiCSRF::make(),
+            GDT_Int::make('stock_amt')->min(1)->max($this->company->getStock()),
+            GDT_Submit::make(),
+            GDT_AntiCSRF::make(),
         ));
         return $this->templatePHP('home.php');
     }

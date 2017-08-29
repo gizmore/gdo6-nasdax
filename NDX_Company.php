@@ -3,12 +3,12 @@ namespace GDO\Nasdax;
 
 use GDO\DB\Cache;
 use GDO\DB\GDO;
-use GDO\DB\GDO_AutoInc;
-use GDO\Date\GDO_DateTime;
-use GDO\Payment\GDO_Money;
-use GDO\Template\GDO_Template;
-use GDO\Type\GDO_Int;
-use GDO\Type\GDO_String;
+use GDO\DB\GDT_AutoInc;
+use GDO\Date\GDT_DateTime;
+use GDO\Payment\GDT_Money;
+use GDO\Template\GDT_Template;
+use GDO\Type\GDT_Int;
+use GDO\Type\GDT_String;
 use GDO\User\User;
 
 final class NDX_Company extends GDO
@@ -18,15 +18,15 @@ final class NDX_Company extends GDO
     public function gdoColumns()
     {
         return array(
-            GDO_AutoInc::make('company_id'),
+            GDT_AutoInc::make('company_id'),
             NDX_Symbol::make('company_symbol')->unique(),
-            GDO_String::make('company_name')->label('name')->max(256)->notNull(),
+            GDT_String::make('company_name')->label('name')->max(256)->notNull(),
             # Current Rate data
-            GDO_Int::make('company_stock')->notNull(),
-            GDO_Money::make('company_close_price')->notNull()->label('net_price'),
-            GDO_Money::make('company_change_price')->notNull()->label('net_change'),
-            GDO_Money::make('company_net_worth')->notNull()->label('net_worth'),
-            GDO_DateTime::make('company_data_time'),
+            GDT_Int::make('company_stock')->notNull(),
+            GDT_Money::make('company_close_price')->notNull()->label('net_price'),
+            GDT_Money::make('company_change_price')->notNull()->label('net_change'),
+            GDT_Money::make('company_net_worth')->notNull()->label('net_worth'),
+            GDT_DateTime::make('company_data_time'),
         );
     }
     
@@ -82,5 +82,5 @@ final class NDX_Company extends GDO
     ##############
     ### Render ###
     ##############
-    public function renderCard() { return GDO_Template::responsePHP('Nasdax', 'card/company.php', ['company'=>$this]); }
+    public function renderCard() { return GDT_Template::responsePHP('Nasdax', 'card/company.php', ['company'=>$this]); }
 }

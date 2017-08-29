@@ -1,10 +1,10 @@
 <?php
 use GDO\Nasdax\NDX_Company;
-use GDO\Template\GDO_Template;
-use GDO\UI\GDO_IconButton;
+use GDO\Template\GDT_Template;
+use GDO\UI\GDT_IconButton;
 
-$field instanceof GDO_Template;
+$field instanceof GDT_Template;
 $gdo = $field->gdo; $gdo instanceof NDX_Company;
 $sym = $gdo->getSymbol();
-echo GDO_IconButton::make()->href(href('Nasdax', 'Buy', "&ndx=$sym"))->icon('attach_money');
-echo GDO_IconButton::make()->href(href('Nasdax', 'Sell', "&ndx=$sym"))->icon('money_off');
+echo GDT_IconButton::make()->href(href('Nasdax', 'Buy', "&ndx=$sym"))->icon('attach_money');
+echo GDT_IconButton::make()->href(href('Nasdax', 'Sell', "&ndx=$sym"))->icon('money_off');

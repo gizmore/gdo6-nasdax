@@ -2,9 +2,9 @@
 namespace GDO\Nasdax;
 
 use GDO\Core\Module;
-use GDO\Date\GDO_DateTime;
-use GDO\Payment\GDO_Money;
-use GDO\Template\GDO_Bar;
+use GDO\Date\GDT_DateTime;
+use GDO\Payment\GDT_Money;
+use GDO\Template\GDT_Bar;
 use GDO\Template\Message;
 use GDO\User\User;
 use GDO\User\UserSetting;
@@ -30,14 +30,14 @@ final class Module_Nasdax extends Module
     public function getUserConfig()
     {
         return array(
-            GDO_Money::make('nasdax_money')->initial('0.00'),
+            GDT_Money::make('nasdax_money')->initial('0.00'),
         );
     }
     public function getConfig()
     {
         return array(
-            GDO_DateTime::make('nasdax_last_sync'),
-            GDO_Money::make('nasdax_start_money')->initial('10000.00'),
+            GDT_DateTime::make('nasdax_last_sync'),
+            GDT_Money::make('nasdax_start_money')->initial('10000.00'),
         );
     }
     public function cfgLastSync() { return $this->getConfigValue('nasdax_last_sync'); }
@@ -58,5 +58,5 @@ final class Module_Nasdax extends Module
     ### Render ###
     ##############
     public function renderTabs() { return $this->templatePHP('tabs.php'); }
-    public function onRenderFor(GDO_Bar $navbar) { $this->templatePHP('sidebars.php', ['navbar'=>$navbar]); }
+    public function onRenderFor(GDT_Bar $navbar) { $this->templatePHP('sidebars.php', ['navbar'=>$navbar]); }
 }

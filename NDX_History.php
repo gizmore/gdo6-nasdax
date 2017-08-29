@@ -2,10 +2,10 @@
 namespace GDO\Nasdax;
 
 use GDO\DB\GDO;
-use GDO\DB\GDO_AutoInc;
-use GDO\DB\GDO_Object;
-use GDO\Date\GDO_DateTime;
-use GDO\Payment\GDO_Money;
+use GDO\DB\GDT_AutoInc;
+use GDO\DB\GDT_Object;
+use GDO\Date\GDT_DateTime;
+use GDO\Payment\GDT_Money;
 
 final class NDX_History extends GDO
 {
@@ -13,11 +13,11 @@ final class NDX_History extends GDO
     public function gdoColumns()
     {
         return array(
-            GDO_AutoInc::make('ndx_id'),
-            GDO_Object::make('ndx_company')->table(NDX_Company::table()),
+            GDT_AutoInc::make('ndx_id'),
+            GDT_Object::make('ndx_company')->table(NDX_Company::table()),
             # Rate data
-            GDO_Money::make('ndx_close_price')->notNull()->label('net_price'),
-            GDO_DateTime::make('ndx_time'),
+            GDT_Money::make('ndx_close_price')->notNull()->label('net_price'),
+            GDT_DateTime::make('ndx_time'),
         );
     }
 }

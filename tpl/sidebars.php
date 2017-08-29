@@ -1,10 +1,10 @@
 <?php
-use GDO\Template\GDO_Bar;
-use GDO\UI\GDO_Link;
+use GDO\Template\GDT_Bar;
+use GDO\UI\GDT_Link;
 
-$navbar instanceof GDO_Bar;
+$navbar instanceof GDT_Bar;
 if ($navbar->isTop())
 {
-    $navbar->addField(GDO_Link::make('link_nasdax')->href(href('Nasdax', 'Home')));
+    $navbar->addField(GDT_Link::make('link_nasdax')->href(href('Nasdax', 'Home')));
 }
 
