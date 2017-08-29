@@ -9,7 +9,7 @@ use GDO\DB\GDT_Object;
 use GDO\Payment\GDT_Money;
 use GDO\Type\GDT_Int;
 use GDO\User\GDT_User;
-use GDO\User\User;
+use GDO\User\GDO_User;
 
 final class NDX_Stock extends GDO
 {
@@ -26,7 +26,7 @@ final class NDX_Stock extends GDO
         );
     }
 
-    public function getUserStock(NDX_Company $company, User $user)
+    public function getUserStock(NDX_Company $company, GDO_User $user)
     {
         $query = self::table()->select('SUM(stock_amt)');
         $query->where("stock_user={$user->getID()} AND stock_company={$company->getID()}");

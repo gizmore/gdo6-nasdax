@@ -9,7 +9,7 @@ use GDO\Payment\GDT_Money;
 use GDO\Template\GDT_Template;
 use GDO\Type\GDT_Int;
 use GDO\Type\GDT_String;
-use GDO\User\User;
+use GDO\User\GDO_User;
 
 final class NDX_Company extends GDO
 {
@@ -39,7 +39,7 @@ final class NDX_Company extends GDO
     public function getUpdateDate() { return $this->getVar('company_data_time'); }
     public function getUpdateTime() { return $this->getValue('company_data_time'); }
     
-    public function getUserStock(User $user) { return NDX_Stock::getStock($this, $user); }
+    public function getUserStock(GDO_User $user) { return NDX_Stock::getStock($this, $user); }
 
     ###############
     ### Factory ###
@@ -74,7 +74,7 @@ final class NDX_Company extends GDO
     }
     private function queryAll()
     {
-        return self::table()->select('company_symbol, gwf_ndx_company.*')->exec()->fetchAllArrayAssoc2dObject();
+        return self::table()->select('company_symbol, ndx_company.*')->exec()->fetchAllArrayAssoc2dObject();
     }
     public function gdoAfterCreate()
     {

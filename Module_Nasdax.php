@@ -1,15 +1,15 @@
 <?php
 namespace GDO\Nasdax;
 
-use GDO\Core\Module;
+use GDO\Core\GDO_Module;
 use GDO\Date\GDT_DateTime;
 use GDO\Payment\GDT_Money;
 use GDO\Template\GDT_Bar;
 use GDO\Template\Message;
-use GDO\User\User;
-use GDO\User\UserSetting;
+use GDO\User\GDO_User;
+use GDO\User\GDO_UserSetting;
 
-final class Module_Nasdax extends Module
+final class Module_Nasdax extends GDO_Module
 {
     public function getClasses() { return ['GDO\Nasdax\NDX_Company', 'GDO\Nasdax\NDX_History', 'GDO\Nasdax\NDX_Stock']; }
     ############
@@ -46,9 +46,9 @@ final class Module_Nasdax extends Module
     #############
     ### Money ###
     #############
-    public function getMoney(User $user, $money) { UserSetting::userGet($user, 'nasdax_money'); }
-    public function giveMoney(User $user, $money) { UserSetting::userInc($user, 'nasdax_money', $money); }
-    public function hookUserActivated(User $user)
+    public function getMoney(GDO_User $user, $money) { GDO_UserSetting::userGet($user, 'nasdax_money'); }
+    public function giveMoney(GDO_User $user, $money) { GDO_UserSetting::userInc($user, 'nasdax_money', $money); }
+    public function hookUserActivated(GDO_User $user)
     {
         $money = $this->cfgStartMoney();
         $this->giveMoney($user, $money);

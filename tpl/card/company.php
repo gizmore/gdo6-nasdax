@@ -1,9 +1,9 @@
 <?php
 use GDO\Nasdax\NDX_Company;
-use GDO\User\User;
+use GDO\User\GDO_User;
 
 $company instanceof NDX_Company;
-$user = User::current();
+$user = GDO_User::current();
 ?>
 <md-card class="ndx-company">
   <md-card-title>
