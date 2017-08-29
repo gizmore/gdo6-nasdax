@@ -74,7 +74,7 @@ final class NDX_Company extends GDO
     }
     private function queryAll()
     {
-        return self::table()->select('company_symbol, ndx_company.*')->exec()->fetchAllArrayAssoc2dObject();
+        return self::table()->select('company_symbol, gwf_ndx_company.*')->exec()->fetchAllArrayAssoc2dObject();
     }
     public function gdoAfterCreate()
     {
