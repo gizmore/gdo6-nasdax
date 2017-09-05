@@ -64,7 +64,7 @@ final class NDX_Company extends GDO
         static $cache;
         if (!isset($cache))
         {
-            if (!($cache = Cache::get('ndx_companies')))
+            if (false === ($cache = Cache::get('ndx_companies')))
             {
                 $cache = $this->queryAll();
                 Cache::set('ndx_companies', $cache);
