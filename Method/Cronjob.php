@@ -6,7 +6,7 @@ use GDO\DB\Cache;
 use GDO\Date\Time;
 use GDO\Nasdax\Module_Nasdax;
 use GDO\Nasdax\NDX_Company;
-use GDO\Util\HTTP;
+use GDO\Net\HTTP;
 /**
  * @author gizmore
  *
