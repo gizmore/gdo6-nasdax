@@ -1,6 +1,6 @@
 <?php
 use GDO\Nasdax\NDX_Company;
-use GDO\Template\GDT_Template;
+use GDO\Core\GDT_Template;
 use GDO\UI\GDT_IconButton;
 
 $field instanceof GDT_Template;

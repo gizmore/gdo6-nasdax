@@ -6,9 +6,9 @@ use GDO\Core\GDO;
 use GDO\DB\GDT_AutoInc;
 use GDO\Date\GDT_DateTime;
 use GDO\Payment\GDT_Money;
-use GDO\Template\GDT_Template;
-use GDO\Type\GDT_Int;
-use GDO\Type\GDT_String;
+use GDO\Core\GDT_Template;
+use GDO\DB\GDT_Int;
+use GDO\DB\GDT_String;
 use GDO\User\GDO_User;
 
 final class NDX_Company extends GDO
@@ -48,7 +48,7 @@ final class NDX_Company extends GDO
      * @param string $symbol
      * @return self
      */
-    public static function getBySymbol(string $symbol=null)
+    public static function getBySymbol($symbol=null)
     {
         if ($symbol)
         {

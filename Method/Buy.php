@@ -7,7 +7,7 @@ use GDO\Form\GDT_Submit;
 use GDO\Form\MethodForm;
 use GDO\Nasdax\Module_Nasdax;
 use GDO\Nasdax\NDX_Company;
-use GDO\Type\GDT_Int;
+use GDO\DB\GDT_Int;
 use GDO\Util\Common;
 
 final class Buy extends MethodForm

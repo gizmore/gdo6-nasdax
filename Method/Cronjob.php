@@ -1,7 +1,7 @@
 <?php
 namespace GDO\Nasdax\Method;
 
-use GDO\Cronjob\MethodCronjob;
+use GDO\Core\MethodCronjob;
 use GDO\DB\Cache;
 use GDO\Date\Time;
 use GDO\Nasdax\Module_Nasdax;
@@ -26,9 +26,9 @@ final class Cronjob extends MethodCronjob
         $now = intval(time() / 3600);
         if ($last !== $now)
         {
-            Cache::unset('ndx_companies');
+            Cache::remove('ndx_companies');
             $this->updateRates();
-            Cache::unset('ndx_companies');
+            Cache::remove('ndx_companies');
             $module->saveConfigVar('nasdax_last_sync', Time::getDate());
         }
     }
@@ -41,7 +41,7 @@ final class Cronjob extends MethodCronjob
         $this->updateWSJ($this->urlNasdaq);
     }
     
-    private function updateWSJ(string $url)
+    private function updateWSJ($url)
     {
         $this->logNotice("Requesting $url");
         if ($response = HTTP::getFromURL($url))
@@ -69,7 +69,7 @@ final class Cronjob extends MethodCronjob
         }
     }
     
-    private function updateRate(string $symbol, string $name, string $stock, string $close, string $change, int $time)
+    private function updateRate($symbol, $name, $stock, $close, $change, $time)
     {
         $stock = (int) str_replace(',', '', $stock);
         if (!($company = NDX_Company::getBySymbol($symbol)))

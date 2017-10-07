@@ -1,8 +1,8 @@
 <?php
 namespace GDO\Nasdax;
 
-use GDO\Template\GDT_Template;
-use GDO\Type\GDT_String;
+use GDO\Core\GDT_Template;
+use GDO\DB\GDT_String;
 
 class NDX_Symbol extends GDT_String
 {

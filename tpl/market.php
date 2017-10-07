@@ -2,7 +2,7 @@
 use GDO\Nasdax\Module_Nasdax;
 use GDO\Nasdax\NDX_Company;
 use GDO\Table\GDT_Table;
-use GDO\Template\GDT_Template;
+use GDO\Core\GDT_Template;
 
 $module = Module_Nasdax::instance();
 $table = NDX_Company::table();

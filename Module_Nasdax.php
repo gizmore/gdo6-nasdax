@@ -4,13 +4,14 @@ namespace GDO\Nasdax;
 use GDO\Core\GDO_Module;
 use GDO\Date\GDT_DateTime;
 use GDO\Payment\GDT_Money;
-use GDO\Template\GDT_Bar;
-use GDO\Template\Message;
+use GDO\UI\GDT_Bar;
+use GDO\Core\GDT_Success;
 use GDO\User\GDO_User;
 use GDO\User\GDO_UserSetting;
 
 final class Module_Nasdax extends GDO_Module
 {
+    public function defaultEnabled() { return false; }
     public function getClasses() { return ['GDO\Nasdax\NDX_Company', 'GDO\Nasdax\NDX_History', 'GDO\Nasdax\NDX_Stock']; }
     ############
     ### Init ###
@@ -52,7 +53,7 @@ final class Module_Nasdax extends GDO_Module
     {
         $money = $this->cfgStartMoney();
         $this->giveMoney($user, $money);
-        echo Message::message('msg_nasdax_start', [$money]);
+        echo GDT_Success::with('msg_nasdax_start', [$money]);
     }
     ##############
     ### Render ###

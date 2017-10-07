@@ -1,7 +1,7 @@
 <?php
 use GDO\Nasdax\NDX_Company;
 use GDO\Payment\GDT_Money;
-use GDO\Template\GDT_Template;
+use GDO\Core\GDT_Template;
 
 $field instanceof GDT_Template;
 $gdo = $field->gdo; $gdo instanceof NDX_Company;

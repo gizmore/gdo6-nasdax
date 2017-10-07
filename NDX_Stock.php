@@ -7,7 +7,7 @@ use GDO\DB\GDT_CreatedAt;
 use GDO\DB\GDT_CreatedBy;
 use GDO\DB\GDT_Object;
 use GDO\Payment\GDT_Money;
-use GDO\Type\GDT_Int;
+use GDO\DB\GDT_Int;
 use GDO\User\GDT_User;
 use GDO\User\GDO_User;
 
