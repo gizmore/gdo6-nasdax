@@ -24,7 +24,7 @@ final class Buy extends MethodForm
         }
         else
         {
-            $tabs->add($this->company->renderCard());
+            $tabs->add($this->company->responseCard());
             $response = parent::execute();
         }
         

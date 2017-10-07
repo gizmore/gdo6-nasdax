@@ -58,6 +58,6 @@ final class Module_Nasdax extends GDO_Module
     ##############
     ### Render ###
     ##############
-    public function renderTabs() { return $this->templatePHP('tabs.php'); }
+    public function renderTabs() { return $this->responsePHP('tabs.php'); }
     public function onRenderFor(GDT_Bar $navbar) { $this->templatePHP('sidebars.php', ['navbar'=>$navbar]); }
 }
