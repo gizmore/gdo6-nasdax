@@ -1,7 +1,7 @@
 <?php
 namespace GDO\Nasdax\Method;
 
-use GDO\Core\MethodCronjob;
+use GDO\Cronjob\MethodCronjob;
 use GDO\DB\Cache;
 use GDO\Date\Time;
 use GDO\Nasdax\Module_Nasdax;
