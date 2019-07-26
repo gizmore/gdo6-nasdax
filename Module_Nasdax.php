@@ -11,7 +11,8 @@ use GDO\User\GDO_UserSetting;
 
 final class Module_Nasdax extends GDO_Module
 {
-    public function defaultEnabled() { return false; }
+	public $module_priority = 99;
+	public function isSiteModule() { return true; }
     public function getClasses() { return ['GDO\Nasdax\NDX_Company', 'GDO\Nasdax\NDX_History', 'GDO\Nasdax\NDX_Stock']; }
     ############
     ### Init ###
