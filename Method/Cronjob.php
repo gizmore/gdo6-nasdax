@@ -1,6 +1,7 @@
 <?php
 namespace GDO\Nasdax\Method;
 
+use GDO\Core\Application;
 use GDO\Cronjob\MethodCronjob;
 use GDO\DB\Cache;
 use GDO\Date\Time;
@@ -23,7 +24,7 @@ final class Cronjob extends MethodCronjob
     {
         $module = Module_Nasdax::instance();
         $last = intval($module->cfgLastSync() / 3600);
-        $now = intval(time() / 3600);
+        $now = intval(Application::$TIME / 3600);
         if ($last !== $now)
         {
             Cache::remove('ndx_companies');
