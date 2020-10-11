@@ -54,7 +54,7 @@ final class Module_Nasdax extends GDO_Module
     {
         $money = $this->cfgStartMoney();
         $this->giveMoney($user, $money);
-        echo GDT_Success::with('msg_nasdax_start', [$money]);
+        echo GDT_Success::with('msg_nasdax_start', [$money])->renderCell();
     }
     ##############
     ### Render ###
