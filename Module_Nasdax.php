@@ -22,6 +22,11 @@ final class Module_Nasdax extends GDO_Module
         $this->addCSS('css/nasdax.css');
     }
     
+    public function onLoadLanguage()
+    {
+        return $this->loadLanguage('lang/ndx');
+    }
+    
     ##############
     ### Config ###
     ##############
