@@ -69,6 +69,10 @@ final class NDX_Company extends GDO
                 $cache = $this->queryAll();
                 Cache::set('ndx_companies', $cache);
             }
+            else
+            {
+                Cache::heat('ndx_companies', $cache);
+            }
         }
         return $cache;
     }
