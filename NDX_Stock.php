@@ -10,6 +10,7 @@ use GDO\Payment\GDT_Money;
 use GDO\DB\GDT_Int;
 use GDO\User\GDT_User;
 use GDO\User\GDO_User;
+use GDO\DB\GDT_Index;
 
 final class NDX_Stock extends GDO
 {
@@ -17,12 +18,13 @@ final class NDX_Stock extends GDO
     {
         return array(
             GDT_AutoInc::make('stock_id'),
-            GDT_User::make('stock_user')->index()->notNull(),
+            GDT_User::make('stock_user')->notNull(),
             GDT_Object::make('stock_company')->table(NDX_Company::table())->notNull(),
             GDT_Int::make('stock_amt')->unsigned()->notNull(),
             GDT_Money::make('stock_bought')->notNull(),
             GDT_CreatedAt::make('stock_created'),
             GDT_CreatedBy::make('stock_creator'),
+            GDT_Index::make('stock_user_index')->indexColumns('stock_user')->hash(),
         );
     }
 
