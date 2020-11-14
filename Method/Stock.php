@@ -12,9 +12,9 @@ final class Stock extends MethodQueryList
         return NDX_Stock::table();
     }
     
-    public function gdoQuery()
+    public function getQuery()
     {
-        return parent::gdoQuery()->where('stock_user='.GDO_User::current()->getID());
+        return parent::getQuery()->where('stock_user='.GDO_User::current()->getID());
     }
 
 }
