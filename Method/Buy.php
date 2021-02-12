@@ -35,9 +35,8 @@ final class Buy extends MethodForm
     {
         $form->addFields(array(
             GDT_Int::make('stock_amt')->min(1)->max($this->company->getStock()),
-            GDT_Submit::make(),
             GDT_AntiCSRF::make(),
         ));
-        return $this->templatePHP('home.php');
+        $form->actions()->addField(GDT_Submit::make());
     }
 }
