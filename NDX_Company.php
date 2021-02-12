@@ -1,7 +1,6 @@
 <?php
 namespace GDO\Nasdax;
 
-use GDO\DB\Cache;
 use GDO\Core\GDO;
 use GDO\DB\GDT_AutoInc;
 use GDO\Date\GDT_DateTime;
@@ -56,35 +55,14 @@ final class NDX_Company extends GDO
             return isset($companies[$symbol]) ? $companies[$symbol] : null;
         }
     }
-    /**
-     * @return self[]
-     */
-    public function all()
-    {
-        static $cache;
-        if (!isset($cache))
-        {
-            if (false === ($cache = Cache::get('ndx_companies')))
-            {
-                $cache = $this->queryAll();
-                Cache::set('ndx_companies', $cache);
-            }
-            else
-            {
-                Cache::heat('ndx_companies', $cache);
-            }
-        }
-        return $cache;
-    }
-    private function queryAll()
-    {
-        return self::table()->select('company_symbol, ndx_company.*')->exec()->fetchAllArrayAssoc2dObject();
-    }
+
     public function gdoAfterCreate()
     {
     }
+
     ##############
     ### Render ###
     ##############
     public function renderCard() { return GDT_Template::php('Nasdax', 'card/company.php', ['company'=>$this]); }
+
 }
