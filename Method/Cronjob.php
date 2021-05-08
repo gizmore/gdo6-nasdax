@@ -49,6 +49,7 @@ final class Cronjob extends MethodCronjob
         {
             $count = 0;
             $time = null;
+
             foreach (explode("\n", $response) as $row)
             {
                 $count++;
