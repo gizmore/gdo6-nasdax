@@ -24,11 +24,11 @@ final class Buy extends MethodForm
         }
         else
         {
-            $tabs->add($this->company->responseCard());
+            $tabs->addField($this->company->responseCard());
             $response = parent::execute();
         }
         
-        return $tabs->add($response);
+        return $tabs->addField($response);
     }
     
     public function createForm(GDT_Form $form)
