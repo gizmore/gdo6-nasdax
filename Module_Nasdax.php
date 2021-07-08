@@ -4,6 +4,7 @@ namespace GDO\Nasdax;
 use GDO\Core\GDO_Module;
 use GDO\Date\GDT_DateTime;
 use GDO\Payment\GDT_Money;
+use GDO\Register\GDO_UserActivation;
 use GDO\UI\GDT_Bar;
 use GDO\Core\GDT_Success;
 use GDO\User\GDO_User;
@@ -54,7 +55,7 @@ final class Module_Nasdax extends GDO_Module
     #############
     public function getMoney(GDO_User $user, $money) { return Module_Nasdax::instance()->userSettingVar($user, 'nasdax_money'); }
     public function giveMoney(GDO_User $user, $money) { Module_Nasdax::instance()->increaseUserSetting($user, 'nasdax_money', $money); }
-    public function hookUserActivated(GDO_User $user)
+    public function hookUserActivated(GDO_User $user, GDO_UserActivation $activation=null)
     {
         $money = $this->cfgStartMoney();
         $this->giveMoney($user, $money);
