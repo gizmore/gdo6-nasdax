@@ -18,7 +18,7 @@ final class Buy extends MethodForm
     {
         $tabs = Module_Nasdax::instance()->renderTabs();
         
-        if (!($this->company = NDX_Company::getBySymbol(Common::getGetString('ndx'))))
+        if (!($this->company = NDX_Company::getBySymbol(Common::getRequestString('ndx'))))
         {
             $response = $this->error('err_ndx_company');
         }
